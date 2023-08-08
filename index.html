@@ -8,14 +8,44 @@
     <script defer src="app.js"></script>
 </head>
 <body>
-    <div class="container">
-    <header><h1>Game Title</h1><div>Score-keeper</div></header> <!--space between-->
+    <div class="grid">
+    <header>
+        <div class="robot-score">
+            <img src="bot.png" style = "width: 30px; height: 30px">
+            <p>00000</p>
+        </div>
+        <img src="nui-logo-large.svg" class="logo-large">
+        <div class="player-score">
+            <img src="eye.png" style = "width: 30px; height: 30px">
+            <p>00000</p>
+        </div>    
+    </header> <!--space between-->
     <!-- game goes here -->
-    <div>Game screen</div>
-    <p>First question goes here</p>
-    
-
+    <div class="reset-row">
+        <div class="resetText">reset</div>
+        <div class="resetIcon"><img src="reset-icon.png">
+        </div>
+    </div>
+    <div class="choose-level">
+        <div class="level-row1">
+            <button class="level-button design-principles">DESIGN PRINCIPLES</button>   
+            <button class="level-button color-theory">COLOR THEORY</button>
+            <button class="level-button typesetting">TYPESETTING</button>
+        </div>
+        <div class= "level-row2">
+            <button class="level-button"><img src="closed-eye.png"></button>
+            <button class="level-button"><img src="closed-eye.png"></button>
+            <button class="level-button"><img src="closed-eye.png"></button>
+        </div>
+        <div class="level-row3">
+            <button class="level-button"><img src="closed-eye.png"></button>
+            <button class="level-button"><img src="closed-eye.png"></button>
+            <button class="level-button"><img src="closed-eye.png"></button>
+        </div>
 
     </div>
+    <!--Game Rules: Player scores points for each round of 5 questions within a category. I will start off with 3 rounds.
+    Player must have a score greater than or equal to the computer's (which is always correct). Player can play a mini game to catch up-->
+    
 </body>
 </html>

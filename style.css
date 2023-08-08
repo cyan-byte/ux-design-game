@@ -1,0 +1,76 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    background-color: #d9d9d9;
+    padding-left: 76px;
+    padding-right: 76px;
+}
+
+.grid {
+    display: grid;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#d9d9d9;
+}
+
+.robot-score {
+    display: flex;
+    background-color: #ffffff;
+    width: 200px;
+    height: 56px;
+}
+
+.player-score {
+    display: flex;
+    background-color: #ffffff;
+    width: 200px;
+    height: 56px;
+}
+
+.reset-row {
+    display: flex;
+    justify-content: center;
+}
+
+.choose-level {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.level-button {
+    width: 420px;
+    height: 150px;
+}
+
+.level-row1 {
+    display: flex;
+}
+
+.design-principles {
+    background: linear-gradient(134deg, #724FFF 0%, #76B9E9 100%);
+}
+
+.color-theory {
+    background: linear-gradient(134deg, #724FFF 0%, #76B9E9 100%);
+}
+
+.typesetting {
+    background: linear-gradient(134deg, #724FFF 0%, #76B9E9 100%);
+
+}
+
+.level-row2 {
+    display: flex;
+}
+
+.level-row3 {
+    display: flex;
+}
