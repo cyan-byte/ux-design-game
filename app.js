@@ -4,80 +4,91 @@ designPrinciplesButton.addEventListener("click", function () {
   window.location = "design-principles.html";
 });
 
-const questions = [
-  {
-    category: [
-      // 3 categories for starters
-      ["Design Principles", "Color Theory", "Typesetting"],
+questionElement.textContent = currentQuiz.questions[questionIndex];
+
+
+
+
+const quizzes = {
+  designPrinciples: {
+    images: [
+      "image1.png",
+      "image2.png",
+      "image3.png",
+      "image4.png",
+      "image5.png"
     ],
-    question: [
-      // 5 questions per category (15 questions total)
-      [
-        'What design principle is most represented in the "ELIFE" heading?',
-        "Which part is displaying emphasis?",
-        "Question 3",
-        "Question 4",
-        "Question 5",
-      ],
-    ],
-    option: [
-      [
-        // 4 options per question
-        ["Alignment", "Hue", "Hierarchy", "Proximity"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-      ][ // 4 options per question
-        (["Alignment", "Hue", "Hierarchy", "Proximity"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"])
-      ][ // 4 options per question
-        (["Alignment", "Hue", "Hierarchy", "Proximity"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"])
-      ][ // 4 options per question
-        (["Alignment", "Hue", "Hierarchy", "Proximity"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"])
-      ][ // 4 options per question
-        (["Alignment", "Hue", "Hierarchy", "Proximity"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"],
-        ["design 1", "design 2", "design 3", "design 4"])
-      ],
-    ],
+    questions: ["What design principle is MOST represented in the word \"ELIFE\"?", "Question 2", "Question 3", "Question 4", "Quesition 5"],
+    options: [
+      ["Option 1a", "Option 2a", "Option 3a", "Option 4a"],
+      ["Option 1b", "Option 2b", "Option 3b", "Option 4b"],
+      ["Option 1c", "Option 2c", "Option 3c", "Option 4c"],
+      ["Option 1d", "Option 2d", "Option 3d", "Option 4d"],
+      ["Option 1e", "Option 2e", "Option 3e", "Option 4e"]
+    ]
   },
-];
+  colorTheory: {
+    images: [
+      "image1.png",
+      "image2.png",
+      "image3.png",
+      "image4.png",
+      "image5.png"
+    ],
+    questions: ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"],
+    options: [
+      ["Option 1a", "Option 2a", "Option 3a", "Option 4a"],
+      ["Option 1b", "Option 2b", "Option 3b", "Option 4b"],
+      ["Option 1c", "Option 2c", "Option 3c", "Option 4c"],
+      ["Option 1d", "Option 2d", "Option 3d", "Option 4d"],
+      ["Option 1e", "Option 2e", "Option 3e", "Option 4e"]
+    ]
+  },
+  typesetting: {
+    images: [
+      "image1.png",
+      "image2.png",
+      "image3.png",
+      "image4.png",
+      "image5.png"
+    ],
+    questions: ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"],
+    options: [
+      ["Option 1a", "Option 2a", "Option 3a", "Option 4a"],
+      ["Option 1b", "Option 2b", "Option 3b", "Option 4b"],
+      ["Option 1c", "Option 2c", "Option 3c", "Option 4c"],
+      ["Option 1d", "Option 2d", "Option 3d", "Option 4d"],
+      ["Option 1e", "Option 2e", "Option 3e", "Option 4e"]
+    ]
+  },
+  uiUxChecklist: {
+    images: [
+      "image1.png",
+      "image2.png",
+      "image3.png",
+      "image4.png",
+      "image5.png"
+    ],
+    questions: ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"],
+    options: [
+      ["Option 1a", "Option 2a", "Option 3a", "Option 4a"],
+      ["Option 1b", "Option 2b", "Option 3b", "Option 4b"],
+      ["Option 1c", "Option 2c", "Option 3c", "Option 4c"],
+      ["Option 1d", "Option 2d", "Option 3d", "Option 4d"],
+      ["Option 1e", "Option 2e", "Option 3e", "Option 4e"]
+    ]
+  },
+}
 
-// let designAnswerOptions = ["Alignment", "Hue", "Hierarchy", "Proximity"];
-let designAnswerButtons = [
-  document.querySelector(".button1"),
-  document.querySelector(".button2"),
-  document.querySelector(".button3"),
-  document.querySelector(".button4"),
-];
+function loadQuestion(questionIndex) {
+  questionElement.textContent = currentQuiz.questions[questionIndex];
+  // Load image dynamically
+  const imageElement = document.createElement("img");
+  imageElement.src = currentQuiz.images[questionIndex];
+  questionElement.appendChild(imageElement);
 
-// function updateOptions()
-
-// function setDesignAnswerButtons() {
-//     let designAnswerOptions = ["Alignment", "Hue", "Hierarchy", "Proximity"];
-//     let designAnswerButtons = [
-//         document.querySelector(".button1"),
-//         document.querySelector(".button2"),
-//         document.querySelector(".button3"),
-//         document.querySelector(".button4")
-//     ];
-
-//     for (let i = 0; i < designAnswerButtons.length; i++) {
-//         designAnswerButtons[i].textContent = designAnswerOptions[i];
-//     }
-// }
-// setDesignAnswerButtons();
+  currentQuiz.options[questionIndex].forEach((option, index) => {
+    answerButtons[index].textContent = option;
+    answerButtons[index].addEventListener("click", () => checkAnswer(option, questionIndex));
+  });
+}

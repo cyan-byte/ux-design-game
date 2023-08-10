@@ -1,0 +1,135 @@
+// make the first category button clickable to another pg.
+let designPrinciplesButton = document.querySelector(".design-principles-button");
+designPrinciplesButton.addEventListener("click", function () {
+  window.location = "design-principles.html";
+});
+
+const questions = [
+  {
+    category: [
+      // 3 categories for starters
+      ["Design Principles", "Color Theory", "Typesetting"],
+    ],
+    question: [
+      // 5 questions per category (15 questions total)
+      [
+        'What design principle is most represented in the "ELIFE" heading?',
+        "Which part is displaying emphasis?",
+        "Question 3",
+        "Question 4",
+        "Question 5",
+      ],
+    ],
+    option: [
+      [
+        // Design options
+        // 4 options per question
+        ["Alignment", "Hue", "Hierarchy", "Proximity"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+      ][ // 4 options per question
+        ["Alignment", "Hue", "Hierarchy", "Proximity"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"]
+      ][ // 4 options per question
+        ["Alignment", "Hue", "Hierarchy", "Proximity"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"]
+      ][ // 4 options per question
+        ["Alignment", "Hue", "Hierarchy", "Proximity"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"]
+      ][ // 4 options per question
+        ["Alignment", "Hue", "Hierarchy", "Proximity"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"],
+        ["design 1", "design 2", "design 3", "design 4"]
+      ],
+    ],
+  },
+];
+
+// let designAnswerOptions = ["Alignment", "Hue", "Hierarchy", "Proximity"];
+let designAnswerButtons = [
+  document.querySelector(".button1"),
+  document.querySelector(".button2"),
+  document.querySelector(".button3"),
+  document.querySelector(".button4"),
+];
+
+// function updateOptions()
+
+// function setDesignAnswerButtons() {
+//     let designAnswerOptions = ["Alignment", "Hue", "Hierarchy", "Proximity"];
+//     let designAnswerButtons = [
+//         document.querySelector(".button1"),
+//         document.querySelector(".button2"),
+//         document.querySelector(".button3"),
+//         document.querySelector(".button4")
+//     ];
+
+//     for (let i = 0; i < designAnswerButtons.length; i++) {
+//         designAnswerButtons[i].textContent = designAnswerOptions[i];
+//     }
+// }
+// setDesignAnswerButtons();
+
+
+
+STYLE
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Principles</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+    <script defer src="app.js"></script>
+  </head>
+  <body class="game-body">
+    <div class="gameplay-grid">
+      <header class="game-header">
+        <div class="game-score-board">
+          <img src="bot.png" alt="robot icon" style="width: 50px; height: 60px">
+          <p class="robot-score game-score">00000</p>
+        </div>
+        <img src="nui.png" alt="nui logo">
+        <div class="game-score-board">
+          <img src="eye.png" alt="eye icon" style="width: 43px; height: 30px;">
+          <p class="player-score game-score">00000</p>
+        </div>
+      </header>
+
+      <div class="game-screen">
+        <img src="design-p-1.png" alt="design principle text">
+        <div class="question-section">
+          <p>First question goes here (What design principle is most represented in the word, "ELIFE"?)</p>
+        </div>
+        <div class="answer-section">
+          <div class="answer-options">
+            <button class="answer-button button1"></button>
+            <button class="answer-button button2"></button>
+            <button class="answer-button button3"></button>
+            <button class="answer-button button4"></button>
+          </div>
+          <button class="next-button">next</button>
+        </div>
+      <!--add 5 different questions to navigate to after user answers each one correctly-->
+      <!--Each screen loads a new question. After the question is answered correctly-->
+      </div>
+    </div>
+  </body>
+</html>
