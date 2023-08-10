@@ -1,51 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Principles Game</title>
-    <link href="style.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NU.I Design Quiz</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="app.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="grid">
-    <header>
-        <div class="robot-score">
-            <img src="bot.png" style = "width: 30px; height: 30px">
-            <p>00000</p>
+      <header class="menu-header">
+        <div class="robot-score-board">
+          <img
+            src="bot.png"
+            alt="robot icon"
+            style="width: 50px; height: 60px;"
+          />
+          <p class="robot-score">00000</p>
         </div>
-        <img src="nui-logo-large.svg" class="logo-large">
-        <div class="player-score">
-            <img src="eye.png" style = "width: 30px; height: 30px">
-            <p>00000</p>
-        </div>    
-    </header> <!--space between-->
-    <!-- game goes here -->
-    <div class="reset-row">
-        <div class="resetText">reset</div>
-        <div class="resetIcon"><img src="reset-icon.png">
+        <img src="nui.png" alt="nui logo" />
+        <div class="player-score-board">
+          <img
+            src="eye.png"
+            alt="eye icon"
+            style="width: 43px; height: 30px;"
+          />
+          <p class="player-score">00000</p>
         </div>
-    </div>
-    <div class="choose-level">
-        <div class="level-row1">
-            <button class="level-button design-principles">DESIGN PRINCIPLES</button>   
-            <button class="level-button color-theory">COLOR THEORY</button>
-            <button class="level-button typesetting">TYPESETTING</button>
+      </header>
+      <main>
+        <div class="menu-row1">
+          <div>
+            <button class="open-level-button design-principles-button">
+              <img
+                src="layout-window.png"
+                alt="layout wireframe"
+                style="width: 192px;"
+              />
+            </button>
+            <p>DESIGN PRINCIPLES</p>
+          </div>
+          <div>
+            <button class="open-level-button">
+              <img
+                src="color-wheel-window.png"
+                alt="color wheel"
+                style="width: 148px;"
+              />
+            </button>
+            <p>COLOR THEORY</p>
+          </div>
+          <div>
+            <button class="open-level-button">
+              <img
+                src="letter-size-control-panel.png"
+                alt="letter size design"
+                style="width: 175px;"
+              />
+            </button>
+            <p>TYPESETTING</p>
+          </div>
+          <div>
+            <button class="open-level-button">
+              <img
+                src="mobile-app-dev.png"
+                alt="mobile app design"
+                style="width: 181px;"
+              />
+            </button>
+            <p>UI/UX CHECKLIST</p>
+          </div>
         </div>
-        <div class= "level-row2">
-            <button class="level-button"><img src="closed-eye.png"></button>
-            <button class="level-button"><img src="closed-eye.png"></button>
-            <button class="level-button"><img src="closed-eye.png"></button>
+        <div class="menu-row2">
+          <div>
+            <button class="locked-level-button">
+              <img
+                src="🦆 icon _eye off outline_.png"
+                alt="closed eye icon"
+                style="width: 82px;"
+              />
+            </button>
+            <p>COMING SOON</p>
+          </div>
+          <div>
+            <button class="locked-level-button">
+              <img
+                src="🦆 icon _eye off outline_.png"
+                alt="closed eye icon"
+                style="width: 82px;"
+              />
+            </button>
+            <p>COMING SOON</p>
+          </div>
+          <div>
+            <button class="locked-level-button">
+              <img
+                src="🦆 icon _eye off outline_.png"
+                alt="closed eye icon"
+                style="width: 82px;"
+              />
+            </button>
+            <p>COMING SOON</p>
+          </div>
+          <div>
+            <button class="locked-level-button">
+              <img
+                src="🦆 icon _eye off outline_.png"
+                alt="closed eye icon"
+                style="width: 82px;"
+              />
+            </button>
+            <p>COMING SOON</p>
+          </div>
         </div>
-        <div class="level-row3">
-            <button class="level-button"><img src="closed-eye.png"></button>
-            <button class="level-button"><img src="closed-eye.png"></button>
-            <button class="level-button"><img src="closed-eye.png"></button>
+        <div class="reset-column">
+          <button class="reset button">
+            <img src="reset-icon.png" alt="reset arrow" />
+          </button>
+          <!-- <div class="reset-text">
+                    reset
+                </div> -->
         </div>
-
+      </main>
     </div>
     <!--Game Rules: Player scores points for each round of 5 questions within a category. I will start off with 3 rounds.
     Player must have a score greater than or equal to the computer's (which is always correct). Player can play a mini game to catch up-->
-    
-</body>
+  </body>
 </html>

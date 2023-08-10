@@ -3,29 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Design Principles</title>
     <link href="style.css" rel="stylesheet" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
     <script defer src="app.js"></script>
   </head>
-  <body>
-    <div class="grid">
-      <header>
-        <div class="robot-score">
-          <img src="bot.png" style="width: 30px; height: 30px;" />
-          <p>00000</p>
+  <body class="game-body">
+    <div class="gameplay-grid">
+      <header class="game-header">
+        <div class="game-score-board">
+          <img src="bot.png" alt="robot icon" style="width: 50px; height: 60px">
+          <p class="robot-score game-score">00000</p>
         </div>
-        <img src="nui-logo-large.svg" class="logo-large" />
-        <div class="player-score">
-          <img src="eye.png" style="width: 30px; height: 30px;" />
-          <p>00000</p>
+        <img src="nui.png" alt="nui logo">
+        <div class="game-score-board">
+          <img src="eye.png" alt="eye icon" style="width: 43px; height: 30px;">
+          <p class="player-score game-score">00000</p>
         </div>
       </header>
-      <!--space between-->
-      <div>Game screen</div>
-      <p>First question goes here</p>
-      <button>Next</button>
+
+      <div class="game-screen">
+        <img src="design-p-1.png" alt="design principle text">
+        <div class="question-section">
+          <p>First question goes here (What design principle...)</p>
+        </div>
+        <div class="answer-section">
+          <div class="answer-options">
+            <button class="answer-button button1"></button>
+            <button class="answer-button button2"></button>
+            <button class="answer-button button3"></button>
+            <button class="answer-button button4"></button>
+          </div>
+          <button class="next-button">next</button>
+        </div>
       <!--add 5 different questions to navigate to after user answers each one correctly-->
       <!--Each screen loads a new question. After the question is answered correctly-->
+      </div>
     </div>
   </body>
 </html>
