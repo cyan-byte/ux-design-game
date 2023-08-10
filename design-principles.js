@@ -1,22 +1,8 @@
-// // make the first category button clickable to another pg.
-let designPrinciplesButton = document.querySelector(
-  ".open-level-button design-principles-button"
-);
-designPrinciplesButton?.addEventListener("click", function () {
-  window.location = "design-principles.html";
-});
-
-// questionElement.textContent = currentQuiz.questions[questionIndex];
-let designGameBody = document.querySelector(".game-body");
-designGameBody?.addEventListener("load", () => {
-  console.log("loaded");
-});
-
 const quizzes = [
   {
     title: "design principles",
     images: [
-      "image1.png",
+      "/images/design-p-1.png",
       "image2.png",
       "image3.png",
       "image4.png",
@@ -24,13 +10,13 @@ const quizzes = [
     ],
     questions: [
       'What design principle is MOST represented in the word "ELIFE"?',
-      "Question 2",
-      "Question 3",
-      "Question 4",
-      "Quesition 5",
+      "Which option has the best contrast?",
+      "What does this represent the MOST?",
+      'What principle allows a layout to have "breathing room"?',
+      "When a font is bolded, what principle is being used?",
     ],
     options: [
-      ["Option 1a", "Option 2a", "Option 3a", "Option 4a"],
+      ["Alignment", "Hue", "Hierarchy", "Proximity"],
       ["Option 1b", "Option 2b", "Option 3b", "Option 4b"],
       ["Option 1c", "Option 2c", "Option 3c", "Option 4c"],
       ["Option 1d", "Option 2d", "Option 3d", "Option 4d"],
@@ -110,3 +96,24 @@ const quizzes = [
     ],
   },
 ];
+
+// loads the first question image to design principles page
+let questionImage = document.querySelector("#question-image");
+let levelQuestion = document.querySelector(".level-question");
+let button1 = document.querySelector(".button1");
+let button2 = document.querySelector(".button2");
+let button3 = document.querySelector(".button3");
+let button4 = document.querySelector(".button4");
+
+let currentQuestionIndex = 0;
+
+window.addEventListener("load", function () {
+  console.log(questionImage);
+  console.log(quizzes[0].images[0]);
+  questionImage.src = `${quizzes[0].images[0]}`;
+});
+
+function loadQuestion() {
+    levelQuestion.textContent = quizzes[1].questions[0];
+    
+};
