@@ -8,6 +8,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none!important;
+}
+
 .main {
   display: grid;
   margin-left: 182px;
@@ -22,11 +26,13 @@ body {
   border-bottom: 1px solid #000;
   background: #6964a1;
   width: 100%;
-  height: 140px;
-  margin-bottom: 40px;
+  height: 80px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  position: fixed;
 }
 
-.game-header {
+/* .game-header {
   display: flex;
   justify-content: center;
   justify-content: space-around;
@@ -34,7 +40,7 @@ body {
   width: 100%;
   height: 140px;
   margin-bottom: 40px;
-}
+} */
 
 .game-body {
   background: #6964a1;
@@ -49,30 +55,37 @@ body {
   width: 100%;
   height: 400px;
   justify-content: center;
+  padding-top: 140px;
 }
 
-.question-section {
+.question-image {
+  margin-bottom: 20px;
+}
+
+.level-question1 {
   color: #FFF;
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 2.2rem;
-  font-style: normal;
   font-weight: 500;
-  line-height: 53.5px; /* 167.188% */
   max-width: 800px;
 }
 
 .option-section {
   display: grid;
-  justify-content: center;
 }
 
 .option-buttons {
   display: flex;
+  gap: 20px;
+
 }
 
-.option-button {
+.option {
   background-color: #C848F4;
+  color: #ffffff;
+  font-size: 1.8rem;
   margin-bottom: 20px;
+  padding: 15px 60px;
 }
 
 button {
@@ -94,8 +107,6 @@ button {
 
 .robot-score {
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
   color: #ffffff;
   font-family: "Orbitron", sans-serif;
 }
@@ -149,6 +160,7 @@ button {
   display: flex;
   justify-content: center;
   gap: 20px;
+  padding-top: 160px;
 }
 
 .menu-row2 {
@@ -179,6 +191,7 @@ p {
 
 .next-button {
   background-color: #dbf301;
-  width: 372px;
+  font-size: 1.8rem;
+  width: 300px;
   height: 57px;
 }

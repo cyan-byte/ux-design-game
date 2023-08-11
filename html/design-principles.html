@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Principles</title>
+    <link href="/style.css" rel="stylesheet" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+    <script defer src="/js/design-principles.js"></script>
+  </head>
+  <body class="game-body">
+    <div class="gameplay-grid">
+      <header class="menu-header">
+        <div class="robot-score-board">
+          <img
+            src="/images/bot.png"
+            alt="robot icon"
+            style="width: 50px; height: 60px;"
+          />
+          <p class="robot-score">00000</p>
+        </div>
+        <img src="/images/nui.png" alt="nui logo" 
+        style="width: 200px;"/>
+        <div class="player-score-board">
+          <img
+            src="/images/eye.png"
+            alt="eye icon"
+            style="width: 43px; height: 30px;"
+          />
+          <p class="player-score">00000</p>
+        </div>
+      </header>
+
+        
+      <!-- Quiz Page -->
+      <div class="game">
+        <img src="" class= "question-image" alt="question image">
+        <div class="level-question1"></div>
+        <div class="option-section">
+          <div class="option-buttons">
+            <button class="option" data-number="1"></button>
+            <button class="option" data-number="2"></button>
+            <button class="option" data-number="3"></button>
+            <button class="option" data-number="4"></button>
+          </div>
+        </div>
+        <button class="next-button">Next</button>
+
+      <!--add 5 different questions to navigate to after user answers each one correctly-->
+      <!--Each screen loads a new question. After the question is answered correctly-->
+      </div>
+    </div>
+  </body>
+</html>
