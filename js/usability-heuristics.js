@@ -6,6 +6,7 @@ let currentQuestion = {};
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let wrongAnswers = 0;
 
 let robotScoreElement = document.getElementById("robot-score-id");
 let playerScoreElement = document.getElementById("player-score-id");
@@ -13,53 +14,53 @@ let playerScoreElement = document.getElementById("player-score-id");
 let questions = [
   {
     question:
-      "Which color scheme consists of three colors that are equidistant from each other on the color wheel?",
-    image: "/images/colorTheoryImage1.png",
-    option1: "Monochromatic",
-    option2: "Analogous",
-    option3: "Complementary",
-    option4: "Triadic",
+      "Which usability heuristic suggests that the system's language, concepts, and navigation should be consistent with what a user experiences in daily life?",
+    image: "/images/usabilityImage1.png",
+    option1: "Error prevention",
+    option2: "Match between system and the real world",
+    option3: "Visibility of system status",
+    option4: "User control and freedom",
+    answer: 2,
+  },
+  {
+    question:
+      'What does the usability heuristic "Consistency and standards" emphasize in interface design?',
+    image: "/images/usabilityImage2.png",
+    option1: "Providing minimal feedback",
+    option2: "Using a wide variety of colors",
+    option3: "Following established design conventions",
+    option4: "Making every button visually distinct from other elements",
     answer: 4,
   },
   {
     question:
-      'What does the color "blue" typically symbolize in color psychology?',
-    image: "/images/colorTheoryImage2.png",
-    option1: "Joy",
-    option2: "Sadness",
-    option3: "Anger",
-    option4: "Energy",
+      'According to the usability heuristic "User control and freedom," what should users have the ability to do?',
+    image: "/images/usabilityImage3.png",
+    option1: "Be guided step-by-step through the interface",
+    option2: "Undo actions and escape undesirable states",
+    option3: "Access extensive help documentation",
+    option4: "Always navigate forward, but not backward",
     answer: 2,
   },
   {
     question:
-      "What is the term for a color created by mixing two primary colors in equal proportions?",
-    image: "/images/colorTheoryImage3.png",
-    option1: "Secondary Color",
-    option2: "Tertiary Color",
-    option3: "Complementary Color",
-    option4: "Intermediate Color",
+      'What should designers consider to adhere to the usability heuristic "Flexibility and efficiency of use"?',
+    image: "/images/usabilityImage4.png",
+    option1: "Providing identical functionality for all users",
+    option2: "Removing advanced features for novice users",
+    option3: "Creating separate interfaces for different tasks",
+    option4: "Offering shortcuts for experienced users",
+    answer: 4,
+  },
+  {
+    question:
+      "Which usability heuristic focuses on designing interfaces that are visually pleasing and easy to understand?",
+    image: "/images/usabilityImage5.png",
+    option1: "Aesthetic and minimalist design",
+    option2: "Consistency and standards",
+    option3: "Match between system and the real world",
+    option4: "Visibility of system status",
     answer: 1,
-  },
-  {
-    question:
-      "Which color harmony is created by choosing colors that are next to each other on the color wheel?",
-    image: "/images/colorTheoryImage4.png",
-    option1: "Split-complementary",
-    option2: "Monochromatic",
-    option3: "Analogous",
-    option4: "Tetradic",
-    answer: 3,
-  },
-  {
-    question:
-      "Which color scheme uses shades, tints, and tones of a single color?",
-    image: "/images/colorTheoryImage5.png",
-    option1: "Complementary",
-    option2: "Monochromatic",
-    option3: "Triadic",
-    option4: "Tertiary",
-    answer: 2,
   },
 ];
 
@@ -89,10 +90,7 @@ function getNewQuestion() {
   });
 
   availableQuestions.splice(questionIndex, 1);
-  
 }
-
-
 
 options.forEach((option) => {
   option.addEventListener("click", (e) => {
@@ -105,11 +103,10 @@ options.forEach((option) => {
       updateScores();
       alert("Correct!");
       getNewQuestion();
+    } else if (Number(selectedAnswer) !== currentQuestion.answer) {
+      score -= correctAnswerPoints;
+      alert("NOT Correct");
     }
-      else if (Number(selectedAnswer) !== currentQuestion.answer){
-        score -= correctAnswerPoints;
-        alert("NOT Correct");
-    } 
     // else {
     //   // score -= correctAnswerPoints;
     //   updateScores();
@@ -128,9 +125,22 @@ function updateScores() {
 
 function nextButtonClick() {
   let nextButton = document.querySelector(".next-button");
-  nextButton.addEventListener("click", getNewQuestion)
+  nextButton.addEventListener("click", getNewQuestion);
 }
 nextButtonClick();
+
+function resetAndHome() {
+  resetGame();
+  questionCounter = 0;
+  availableQuestions = [...questions];
+  wrongAnswers = 0;
+  window.location.assign("/html/index.html");
+}
+
+function resetGame() {
+  score = 0;
+  updateScores();
+}
 
 startGame();
 

@@ -6,10 +6,10 @@
     <title>Design Principles</title>
     <link href="/style.css" rel="stylesheet" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-    <script defer src="/js/design-principles.js"></script>
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="/js/usability-heuristics.js"></script>
   </head>
   <body class="game-body">
     <div class="gameplay-grid">
@@ -20,25 +20,25 @@
             alt="robot icon"
             style="width: 50px; height: 60px;"
           />
-          <p class="robot-score">00000</p>
+          <p class="robot-score" id="robot-score-id">00000</p>
         </div>
-        <img src="/images/nui.png" alt="nui logo" 
-        style="width: 200px;"/>
+        <a href="/html/index.html">
+          <img src="/images/nui.png" alt="nui logo" style="width: 200px;" />
+        </a>
         <div class="player-score-board">
           <img
             src="/images/eye.png"
             alt="eye icon"
             style="width: 43px; height: 30px;"
           />
-          <p class="player-score">00000</p>
+          <p class="player-score" id="player-score-id">00000</p>
         </div>
       </header>
 
-        
       <!-- Quiz Page -->
       <div class="game">
-        <img src="" class= "question-image" alt="question image">
-        <div class="level-question1"></div>
+        <img src="" class="question-image" alt="question image" />
+        <div class="level-question"></div>
         <div class="option-section">
           <div class="option-buttons">
             <button class="option" data-number="1"></button>
@@ -48,9 +48,15 @@
           </div>
         </div>
         <button class="next-button">Next</button>
+        </div>
+        <!-- <div class="alert-box">
+          <div class="alert-content">
+            <p class="alert-message">Correct!</p>
+            <button class="close-alert-box">Continue</button>
+          </div> -->
 
-      <!--add 5 different questions to navigate to after user answers each one correctly-->
-      <!--Each screen loads a new question. After the question is answered correctly-->
+        <!--add 5 different questions to navigate to after user answers each one correctly-->
+        <!--Each screen loads a new question. After the question is answered correctly-->
       </div>
     </div>
   </body>
