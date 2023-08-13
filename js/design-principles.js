@@ -7,8 +7,8 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let robotScoreElement = document.getElementById("robot-score-id");
-let playerScoreElement = document.getElementById("player-score-id");
+let robotScoreElement = document.querySelector(".robot-score-class");
+let playerScoreElement = document.querySelector(".player-score-class");
 
 let questions = [
   {
@@ -47,11 +47,11 @@ let questions = [
     option2: "Color",
     option3: "Space",
     option4: "Balance",
-    answer: 5,
+    answer: 1,
   },
   {
     question:
-      "In the image below, which design principle creates a sense of harmony through the distribution of weight",
+      "In the image below, which design principle creates a sense of harmony through the distribution of weight?",
     image: "/images/designImage5.png",
     option1: "Scale",
     option2: "Balance",
@@ -90,44 +90,60 @@ function getNewQuestion() {
 }
 
 options.forEach((option) => {
-    option.addEventListener("click", (e) => {
-      const selectedOption = e.target;
-      const selectedAnswer = selectedOption.dataset["number"];
-      console.log(Number(selectedAnswer), currentQuestion.answer);
-      console.log(currentQuestion);
-      if (Number(selectedAnswer) === currentQuestion.answer) {
-        score += correctAnswerPoints;
-        updateScores();
-        alert("Correct!");
-        getNewQuestion();
+  option.addEventListener("click", (e) => {
+    const selectedOption = e.target;
+    const selectedAnswer = selectedOption.dataset["number"];
+    console.log(Number(selectedAnswer), currentQuestion.answer);
+    console.log(currentQuestion);
+    if (Number(selectedAnswer) === currentQuestion.answer) {
+      score += correctAnswerPoints;
+      updateScores();
+      alert("Correct!");
+      getNewQuestion();
+    } else {
+      score -= correctAnswerPoints;
+      alert("NOT Correct");
+      wrongAnswers++;
+      if (wrongAnswers > 2) {
+        alert("You got more than 2 questions wrong. Game over.");
+        resetAndGoHome();
+      }
+    }
+    // else {
+    //   // score -= correctAnswerPoints;
+    //   updateScores();
+    // }
 
-      }
-        else if (Number(selectedAnswer) !== currentQuestion.answer){
-          score -= correctAnswerPoints;
-      } 
-      // else {
-      //   // score -= correctAnswerPoints;
-      //   updateScores();
-      // }
-  
-      if (Number(selectedAnswer) !== currentQuestion.answer) {
-        return updateScores();
-      }
-    });
+    if (Number(selectedAnswer) !== currentQuestion.answer) {
+      return updateScores();
+    }
   });
-  
-  function updateScores() {
-    robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
-    playerScoreElement.textContent = String(score).padStart(5, "0");
-  }
-  
-  function nextButtonClick() {
-    let nextButton = document.querySelector(".next-button");
-    nextButton.addEventListener("click", getNewQuestion)
-  }
-  nextButtonClick();
-  
-  startGame();
-  
-  // add this in a condition to reset and restart the game: windows.location.reload()
-  
+});
+
+function updateScores() {
+  robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
+  playerScoreElement.textContent = String(score).padStart(5, "0");
+}
+
+function nextButtonClick() {
+  let nextButton = document.querySelector(".next-button");
+  nextButton.addEventListener("click", getNewQuestion);
+}
+nextButtonClick();
+
+function resetAndGoHome() {
+  resetGame();
+  questionCounter = 0;
+  availableQuestions = [...questions];
+  wrongAnswers = 0;
+  window.location.assign("/html/index.html");
+}
+
+function resetGame() {
+  score = 0;
+  updateScores();
+}
+
+startGame();
+
+// add this in a condition to reset and restart the game: windows.location.reload()

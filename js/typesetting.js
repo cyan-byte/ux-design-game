@@ -6,6 +6,8 @@ let currentQuestion = {};
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let robotScoreElement = document.querySelector(".robot-score-class");
+let playerScoreElement = document.querySelector(".player-score-class");
 
 let questions = [
   {
@@ -60,7 +62,7 @@ let questions = [
   },
 ];
 
-const correctBonus = 10; // points per correct answer
+const correctAnswerPoints = 10; // points per correct answer
 const maxQuestions = 5;
 
 function startGame() {
@@ -87,6 +89,7 @@ function getNewQuestion() {
 
   availableQuestions.splice(questionIndex, 1);
 }
+
 options.forEach((option) => {
   option.addEventListener("click", (e) => {
     const selectedOption = e.target;
@@ -98,11 +101,15 @@ options.forEach((option) => {
       updateScores();
       alert("Correct!");
       getNewQuestion();
-
+    } else {
+      score -= correctAnswerPoints;
+      alert("NOT Correct");
+      wrongAnswers++;
+      if (wrongAnswers > 2) {
+        alert("You got more than 2 questions wrong. Game over.");
+        resetAndGoHome();
+      }
     }
-      else if (Number(selectedAnswer) !== currentQuestion.answer){
-        score -= correctAnswerPoints;
-    } 
     // else {
     //   // score -= correctAnswerPoints;
     //   updateScores();
@@ -121,11 +128,23 @@ function updateScores() {
 
 function nextButtonClick() {
   let nextButton = document.querySelector(".next-button");
-  nextButton.addEventListener("click", getNewQuestion)
+  nextButton.addEventListener("click", getNewQuestion);
 }
 nextButtonClick();
+
+function resetAndGoHome() {
+  resetGame();
+  questionCounter = 0;
+  availableQuestions = [...questions];
+  wrongAnswers = 0;
+  window.location.assign("/html/index.html");
+}
+
+function resetGame() {
+  score = 0;
+  updateScores();
+}
 
 startGame();
 
 // add this in a condition to reset and restart the game: windows.location.reload()
-

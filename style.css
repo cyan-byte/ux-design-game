@@ -17,13 +17,30 @@ a {
   margin-left: 182px;
 }
 
+.quizzes-and-menu-row1 {
+  display: grid;
+  justify-content: center;
+}
+
 .quizzes-title-row {
   display: flex;
-  width: 1020px;
-  /* margin-left: 160px;   */
+  justify-content: start;
   padding-top: 120px;
   padding-bottom: 10px;
-  font-size: 2.4rem;
+  font-size: 3rem;
+}
+
+.study-room-and-row1 {
+  display: flex;
+  justify-content: center;
+}
+
+.study-room-text {
+  display: flex;
+  justify-content: start;
+  padding-top: 120px;
+  padding-bottom: 10px;
+  font-size: 3rem;
 }
 
 .menu-header {
@@ -39,6 +56,27 @@ a {
   padding-top: 20px;
   margin-bottom: 30px;
   position: fixed;
+}
+
+.study-room-menu-header {
+  background-color: #060217;
+}
+
+.study-room-button {
+  width: 240px;
+  height: 210px;
+  background-color: #060217;
+  padding: 20px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: -10px;
+}
+
+.back-to-quizzes-button {
+  background-color: #dbf301;
+  font-size: 1.4rem;
+  width: 120px;
 }
 
 /* .game-header {
@@ -60,10 +98,10 @@ a {
 }
 
 .game {
-  display: grid;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 400px;
-  justify-content: center;
   padding-top: 140px;
 }
 
@@ -85,15 +123,21 @@ a {
 
 .option-buttons {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .option {
+
   background-color: #c848f4;
   color: #ffffff;
   font-size: 1.8rem;
   margin-bottom: 20px;
   padding: 15px 60px;
+  width: 400px;
+  height: 64px;
+  border-radius: 0;
 }
 
 button {
@@ -113,7 +157,7 @@ button {
   display: flex;
 }
 
-.robot-score {
+.robot-score-class {
   display: flex;
   color: #ffffff;
   font-family: "Orbitron", sans-serif;
@@ -125,7 +169,7 @@ button {
   align-items: center;
 }
 
-.player-score {
+.player-score-class {
   display: flex;
   width: 200px;
   color: #ffffff;

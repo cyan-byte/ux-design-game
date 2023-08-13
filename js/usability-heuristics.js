@@ -8,8 +8,8 @@ let questionCounter = 0;
 let availableQuestions = [];
 let wrongAnswers = 0;
 
-let robotScoreElement = document.getElementById("robot-score-id");
-let playerScoreElement = document.getElementById("player-score-id");
+let robotScoreElement = document.querySelector(".robot-score-class");
+let playerScoreElement = document.querySelector(".player-score-class");
 
 let questions = [
   {
@@ -103,9 +103,14 @@ options.forEach((option) => {
       updateScores();
       alert("Correct!");
       getNewQuestion();
-    } else if (Number(selectedAnswer) !== currentQuestion.answer) {
+    } else {
       score -= correctAnswerPoints;
       alert("NOT Correct");
+      wrongAnswers++;
+      if (wrongAnswers > 2) {
+        alert("You got more than 2 questions wrong. Game over.");
+        resetAndGoHome();
+      }
     }
     // else {
     //   // score -= correctAnswerPoints;
@@ -129,7 +134,7 @@ function nextButtonClick() {
 }
 nextButtonClick();
 
-function resetAndHome() {
+function resetAndGoHome() {
   resetGame();
   questionCounter = 0;
   availableQuestions = [...questions];

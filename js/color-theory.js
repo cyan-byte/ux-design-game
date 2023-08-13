@@ -7,8 +7,8 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let robotScoreElement = document.getElementById("robot-score-id");
-let playerScoreElement = document.getElementById("player-score-id");
+let robotScoreElement = document.querySelector(".robot-score-class");
+let playerScoreElement = document.querySelector(".player-score-class");
 
 let questions = [
   {
@@ -63,6 +63,7 @@ let questions = [
   },
 ];
 
+
 const correctAnswerPoints = 10; // points per correct answer
 const maxQuestions = 5;
 
@@ -89,10 +90,7 @@ function getNewQuestion() {
   });
 
   availableQuestions.splice(questionIndex, 1);
-  
 }
-
-
 
 options.forEach((option) => {
   option.addEventListener("click", (e) => {
@@ -105,11 +103,15 @@ options.forEach((option) => {
       updateScores();
       alert("Correct!");
       getNewQuestion();
+    } else {
+      score -= correctAnswerPoints;
+      alert("NOT Correct");
+      wrongAnswers++;
+      if (wrongAnswers > 2) {
+        alert("You got MORE THAN 2 questions wrong. Game over.");
+        resetAndGoHome();
+      }
     }
-      else if (Number(selectedAnswer) !== currentQuestion.answer){
-        score -= correctAnswerPoints;
-        alert("NOT Correct");
-    } 
     // else {
     //   // score -= correctAnswerPoints;
     //   updateScores();
@@ -128,9 +130,22 @@ function updateScores() {
 
 function nextButtonClick() {
   let nextButton = document.querySelector(".next-button");
-  nextButton.addEventListener("click", getNewQuestion)
+  nextButton.addEventListener("click", getNewQuestion);
 }
 nextButtonClick();
+
+function resetAndGoHome() {
+  resetGame();
+  questionCounter = 0;
+  availableQuestions = [...questions];
+  wrongAnswers = 0;
+  window.location.assign("/html/index.html");
+}
+
+function resetGame() {
+  score = 0;
+  updateScores();
+}
 
 startGame();
 
