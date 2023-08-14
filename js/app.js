@@ -6,25 +6,25 @@ let designPrinciplesButton = document.querySelector(
 designPrinciplesButton?.addEventListener("click", function () {
   window.location = "/html/design-principles.html";
 });
-// color theory menu button
-let colorTheoryButton = document.querySelector(".color-theory-button");
-colorTheoryButton?.addEventListener("click", function () {
-  window.location = "/html/color-theory.html";
-});
+// // color theory menu button
+// let colorTheoryButton = document.querySelector(".color-theory-button");
+// colorTheoryButton?.addEventListener("click", function () {
+//   window.location = "/html/color-theory.html";
+// });
 
-// typesetting menu button
-let typesettingButton = document.querySelector(".color-theory-button");
-typesettingButton?.addEventListener("click", function () {
-  window.location = "/html/typesetting.html";
-});
+// // typesetting menu button
+// let typesettingButton = document.querySelector(".color-theory-button");
+// typesettingButton?.addEventListener("click", function () {
+//   window.location = "/html/typesetting.html";
+// });
 
-// Usability Heuristics menu button
-let usabilityHeuristicsButton = document.querySelector(
-  ".usability-heuristics-button"
-);
-usabilityHeuristicsButton?.addEventListener("click", function () {
-  window.location = "/html/usability-heuristics.html";
-});
+// // Usability Heuristics menu button
+// let usabilityHeuristicsButton = document.querySelector(
+//   ".usability-heuristics-button"
+// );
+// usabilityHeuristicsButton?.addEventListener("click", function () {
+//   window.location = "/html/usability-heuristics.html";
+// });
 
 let designGameBody = document.querySelector(".game-body");
 designGameBody?.addEventListener("load", () => {
@@ -43,8 +43,11 @@ function resetGame() {
   updateScores();
 }
 
+let resetButton = document.querySelector(".reset-button");
+resetButton.addEventListener("click", () => {
+resetGame();
+});
 function resetButtonClick() {
-  let resetButton = document.querySelector(".reset-button");
-  resetButton.addEventListener("click", resetGame);
+  score = 0;
+  updateScores();
 }
-resetButtonClick()

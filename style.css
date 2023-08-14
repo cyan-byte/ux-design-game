@@ -243,6 +243,7 @@ p {
 }
 
 .next-button {
+  display: none;
   background-color: #dbf301;
   font-size: 1.8rem;
   width: 300px;

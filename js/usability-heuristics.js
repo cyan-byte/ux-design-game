@@ -54,12 +54,12 @@ let questions = [
   },
   {
     question:
-      "Which usability heuristic focuses on designing interfaces that are visually pleasing and easy to understand?",
+      "Which usability heuristic emphasizes the need to offer users clear and timely feedback and to know where they are on the website?",
     image: "/images/usabilityImage5.png",
-    option1: "Aesthetic and minimalist design",
+    option1: "Visibility of system status",
     option2: "Consistency and standards",
     option3: "Match between system and the real world",
-    option4: "Visibility of system status",
+    option4: "Aesthetic and minimalist design",
     answer: 1,
   },
 ];
@@ -106,10 +106,15 @@ options.forEach((option) => {
     } else {
       score -= correctAnswerPoints;
       alert("NOT Correct");
+      getNewQuestion();
       wrongAnswers++;
       if (wrongAnswers > 2) {
         alert("You got more than 2 questions wrong. Game over.");
         resetAndGoHome();
+      } else {
+        alert("YOU WIN!");
+        window.location.assign("/html/round-four.html");
+
       }
     }
     // else {
@@ -139,7 +144,7 @@ function resetAndGoHome() {
   questionCounter = 0;
   availableQuestions = [...questions];
   wrongAnswers = 0;
-  window.location.assign("/html/index.html");
+  window.location.assign("/html/round-four.html");
 }
 
 function resetGame() {

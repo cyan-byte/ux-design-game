@@ -1,18 +1,20 @@
 let question = document.querySelector(".level-question");
-let options = document.querySelectorAll(".option");
+let options = [...document.querySelectorAll(".option")]; // makes a copy of this selection and the [] turn it to an array
 let questionImage = document.querySelector(".question-image");
-
+console.log(options);
 let currentQuestion = {};
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let wrongAnswers = 0;
+
 let robotScoreElement = document.querySelector(".robot-score-class");
 let playerScoreElement = document.querySelector(".player-score-class");
 
 let questions = [
   {
     question:
-      "What term describes a single word or short line of text that appears at the beginning or end of a paragraph, separated from the rest of the paragraph?",
+      "What term describes a lone word or short group of words leftover from a previous paragraph? They appear at the bottom of a paragraph, column or page.",
     image: "/images/typesettingImage1.png",
     option1: "Widow",
     option2: "Hyphen",
@@ -32,13 +34,13 @@ let questions = [
   },
   {
     question:
-      "What is the term for the short line at the end of a paragraph that appears alone at the top of a page or column, separated from the rest of the paragraph?",
+      "What is the term for a word or short line of text that appears alone at the top of a page or column, separated from the rest of the paragraph?",
     image: "/images/typesettingImage3.png",
-    option1: "Orphan",
+    option1: "Widow",
     option2: "Hyphen",
-    option3: "Widow",
+    option3: "Orphan",
     option4: "Leading",
-    answer: 1,
+    answer: 3,
   },
   {
     question:
@@ -104,6 +106,7 @@ options.forEach((option) => {
     } else {
       score -= correctAnswerPoints;
       alert("NOT Correct");
+      getNewQuestion();
       wrongAnswers++;
       if (wrongAnswers > 2) {
         alert("You got more than 2 questions wrong. Game over.");
@@ -137,7 +140,7 @@ function resetAndGoHome() {
   questionCounter = 0;
   availableQuestions = [...questions];
   wrongAnswers = 0;
-  window.location.assign("/html/index.html");
+  window.location.assign("/html/round-three.html");
 }
 
 function resetGame() {
@@ -148,3 +151,4 @@ function resetGame() {
 startGame();
 
 // add this in a condition to reset and restart the game: windows.location.reload()
+

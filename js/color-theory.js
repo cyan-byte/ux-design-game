@@ -6,6 +6,7 @@ let currentQuestion = {};
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let wrongAnswers = 0;
 
 let robotScoreElement = document.querySelector(".robot-score-class");
 let playerScoreElement = document.querySelector(".player-score-class");

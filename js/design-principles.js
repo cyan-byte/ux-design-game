@@ -6,6 +6,7 @@ let currentQuestion = {};
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let wrongAnswers = 0;
 
 let robotScoreElement = document.querySelector(".robot-score-class");
 let playerScoreElement = document.querySelector(".player-score-class");
@@ -23,7 +24,7 @@ let questions = [
   {
     question: "What design principle is MOST shown in the image above?",
     image: "/images/designImage2.png",
-    option1: "Negative Space",
+    option1: "Proximity",
     option2: "Movement",
     option3: "Repetition",
     option4: "Contrast",
@@ -62,7 +63,7 @@ let questions = [
 ];
 
 const correctAnswerPoints = 10; // points per correct answer
-const maxQuestions = 5;
+const maxQuestions = 6;
 
 function startGame() {
   questionCounter = 0;
@@ -73,7 +74,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("/html/index.html");
+    return window.location.assign("/html/round-two.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -93,20 +94,25 @@ options.forEach((option) => {
   option.addEventListener("click", (e) => {
     const selectedOption = e.target;
     const selectedAnswer = selectedOption.dataset["number"];
-    console.log(Number(selectedAnswer), currentQuestion.answer);
-    console.log(currentQuestion);
+    // console.log(Number(selectedAnswer), currentQuestion.answer);
+    // console.log(currentQuestion);
     if (Number(selectedAnswer) === currentQuestion.answer) {
       score += correctAnswerPoints;
       updateScores();
       alert("Correct!");
       getNewQuestion();
+      goToRoundTwo();
     } else {
-      score -= correctAnswerPoints;
+    //   score -= correctAnswerPoints;
       alert("NOT Correct");
+      getNewQuestion();
       wrongAnswers++;
       if (wrongAnswers > 2) {
         alert("You got more than 2 questions wrong. Game over.");
         resetAndGoHome();
+      } else if (wrongAnswers < 2) {
+        alert("YOU WIN!");
+        window.location.assign("/html/round-two.html");
       }
     }
     // else {
@@ -123,6 +129,16 @@ options.forEach((option) => {
 function updateScores() {
   robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
   playerScoreElement.textContent = String(score).padStart(5, "0");
+}
+
+function goToRoundOne() {
+  if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
+    return window.location.assign("/html/round-one.html");
+}
+
+function goToRoundTwo() {
+  if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
+    return window.location.assign("/html/round-two.html");
 }
 
 function nextButtonClick() {
@@ -145,5 +161,5 @@ function resetGame() {
 }
 
 startGame();
-
+goToRoundTwo();
 // add this in a condition to reset and restart the game: windows.location.reload()
