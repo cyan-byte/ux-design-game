@@ -3,7 +3,8 @@ let options = [...document.querySelectorAll(".option")]; // makes a copy of this
 let questionImage = document.querySelector(".question-image");
 console.log(options);
 let currentQuestion = {};
-let score = 0;
+let playerScore = 0;
+let computerScore = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 let wrongAnswers = 0;
@@ -69,7 +70,8 @@ const maxQuestions = 5;
 
 function startGame() {
   questionCounter = 0;
-  score = 0;
+  playerScore = 0;
+  computerScore = 0;
   availableQuestions = [...questions]; // gets a full COPY of all the questions from the questions array into availableQuestions
   // console.log(availableQuestions);
   getNewQuestion();
@@ -98,13 +100,15 @@ options.forEach((option) => {
     const selectedAnswer = selectedOption.dataset["number"];
     console.log(Number(selectedAnswer), currentQuestion.answer);
     console.log(currentQuestion);
+    computerScore += correctAnswerPoints; // computer scores each time
+
     if (Number(selectedAnswer) === currentQuestion.answer) {
-      score += correctAnswerPoints;
+      playerScore += correctAnswerPoints;
       updateScores();
       alert("Correct!");
       getNewQuestion();
     } else {
-      score -= correctAnswerPoints;
+      playerScore -= correctAnswerPoints;
       alert("NOT Correct");
       getNewQuestion();
       wrongAnswers++;
@@ -112,9 +116,8 @@ options.forEach((option) => {
         alert("You got more than 2 questions wrong. Game over.");
         resetAndGoHome();
       } else {
-        alert("YOU WIN!");
+        alert("YOU HAVE WON THE GAME!");
         window.location.assign("/html/round-four.html");
-
       }
     }
     // else {
@@ -129,8 +132,10 @@ options.forEach((option) => {
 });
 
 function updateScores() {
-  robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
-  playerScoreElement.textContent = String(score).padStart(5, "0");
+  console.log(computerScore);
+  console.log(playerScore);
+  robotScoreElement.textContent = String(computerScore).padStart(5, "0"); // changed the minus sign to an equals sign! It works
+  playerScoreElement.textContent = String(playerScore).padStart(5, "0");
 }
 
 function nextButtonClick() {
@@ -148,7 +153,8 @@ function resetAndGoHome() {
 }
 
 function resetGame() {
-  score = 0;
+  playerScore = 0;
+  computerScore = 0;
   updateScores();
 }
 

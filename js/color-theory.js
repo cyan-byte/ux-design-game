@@ -66,7 +66,7 @@ let questions = [
 
 
 const correctAnswerPoints = 10; // points per correct answer
-const maxQuestions = 5;
+const maxQuestions = 6;
 
 function startGame() {
   questionCounter = 0;
@@ -77,7 +77,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("/html/index.html");
+    return window.location.assign("/html/round-three.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -97,20 +97,25 @@ options.forEach((option) => {
   option.addEventListener("click", (e) => {
     const selectedOption = e.target;
     const selectedAnswer = selectedOption.dataset["number"];
-    console.log(Number(selectedAnswer), currentQuestion.answer);
-    console.log(currentQuestion);
+    // console.log(Number(selectedAnswer), currentQuestion.answer);
+    // console.log(currentQuestion);
     if (Number(selectedAnswer) === currentQuestion.answer) {
       score += correctAnswerPoints;
       updateScores();
       alert("Correct!");
       getNewQuestion();
+      goToRoundThree();
     } else {
-      score -= correctAnswerPoints;
+    //   score -= correctAnswerPoints;
       alert("NOT Correct");
+      getNewQuestion();
       wrongAnswers++;
       if (wrongAnswers > 2) {
-        alert("You got MORE THAN 2 questions wrong. Game over.");
+        alert("You got more than 2 questions wrong. Game over.");
         resetAndGoHome();
+      } else if (wrongAnswers < 2 && availableQuestions.length === 0) {
+        alert("YOU WIN! Round 3 is now UNLOCKED (Typesetting)!");
+        window.location.assign("/html/round-three.html");
       }
     }
     // else {
@@ -127,6 +132,16 @@ options.forEach((option) => {
 function updateScores() {
   robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
   playerScoreElement.textContent = String(score).padStart(5, "0");
+}
+
+function goToRoundOne() {
+  if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
+    return window.location.assign("/html/round-one.html");
+}
+
+function goToRoundThree() {
+  if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
+    return window.location.assign("/html/round-three.html");
 }
 
 function nextButtonClick() {
@@ -149,5 +164,5 @@ function resetGame() {
 }
 
 startGame();
-
+goToRound();
 // add this in a condition to reset and restart the game: windows.location.reload()

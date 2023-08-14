@@ -67,7 +67,8 @@ const maxQuestions = 6;
 
 function startGame() {
   questionCounter = 0;
-  score = 0;
+  playerScore = 0;
+  computerScore = 0;
   availableQuestions = [...questions]; // gets a full COPY of all the questions from the questions array into availableQuestions
   // console.log(availableQuestions);
   getNewQuestion();
@@ -96,25 +97,28 @@ options.forEach((option) => {
     const selectedAnswer = selectedOption.dataset["number"];
     // console.log(Number(selectedAnswer), currentQuestion.answer);
     // console.log(currentQuestion);
+computerScore += correctAnswerPoints // computer always gets 10pts
     if (Number(selectedAnswer) === currentQuestion.answer) {
-      score += correctAnswerPoints;
+      playerScore += correctAnswerPoints;
       updateScores();
       alert("Correct!");
       getNewQuestion();
       goToRoundTwo();
     } else {
-    //   score -= correctAnswerPoints;
+      playerScore -= correctAnswerPoints;
       alert("NOT Correct");
       getNewQuestion();
       wrongAnswers++;
       if (wrongAnswers > 2) {
         alert("You got more than 2 questions wrong. Game over.");
         resetAndGoHome();
-      } else if (wrongAnswers < 2) {
-        alert("YOU WIN!");
+      }
+
+    }
+    if (wrongAnswers < 2 && availableQuestions.length === 0) {
+        alert("YOU WIN! You can now advance to ROUND 2 (Color Theory)!");
         window.location.assign("/html/round-two.html");
       }
-    }
     // else {
     //   // score -= correctAnswerPoints;
     //   updateScores();
@@ -127,8 +131,8 @@ options.forEach((option) => {
 });
 
 function updateScores() {
-  robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
-  playerScoreElement.textContent = String(score).padStart(5, "0");
+  robotScoreElement.textContent = String(computerScore).padStart(5, "0"); // changed the minus sign to an equals sign! It works
+  playerScoreElement.textContent = String(playerScore).padStart(5, "0");
 }
 
 function goToRoundOne() {
@@ -156,7 +160,8 @@ function resetAndGoHome() {
 }
 
 function resetGame() {
-  score = 0;
+  playerScore = 0;
+  computerScore = 0; 
   updateScores();
 }
 
