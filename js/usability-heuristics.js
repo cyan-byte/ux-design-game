@@ -25,7 +25,7 @@ let questions = [
   },
   {
     question:
-      'What does the usability heuristic "Consistency and standards" emphasize in interface design?',
+      'What does the usability heuristic "Consistency and Standards" emphasize in interface design?',
     image: "/images/usabilityImage2.png",
     option1: "Providing minimal feedback",
     option2: "Using a wide variety of colors",
