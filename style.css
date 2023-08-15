@@ -32,14 +32,21 @@ a {
 
 .study-room-and-row1 {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .study-room-text {
   display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+}
+
+.study-room-courses-text {
+  display: flex;
   justify-content: start;
   padding-top: 120px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   font-size: 3rem;
 }
 
@@ -62,10 +69,28 @@ a {
   background-color: #060217;
 }
 
+.study-room-column {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
 .study-room-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dbf301;
+  background-color: #dbf301;
+  border-radius: 20px 20px 20px 20px;
+  border-bottom: 1px solid #000;
+  padding: 4px 10px;
+}
+
+.study-room-menu-button {
   width: 240px;
   height: 210px;
   background-color: #060217;
+  color: #ffffff;
   padding: 20px 40px;
   justify-content: center;
   align-items: center;
@@ -73,10 +98,19 @@ a {
   margin-bottom: -10px;
 }
 
+.back-to-quizzes-column {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  margin-bottom: 40px;
+}
+
 .back-to-quizzes-button {
+  display: flex;
+  justify-content: center;
   background-color: #dbf301;
   font-size: 1.4rem;
-  width: 120px;
+  padding: 10px 60px;
 }
 
 /* .game-header {
@@ -233,9 +267,19 @@ p {
 }
 
 .reset-column {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: end;
+}
+
+.reset-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dbf301;
+  border-radius: 20px 20px 20px 20px;
+  border-bottom: 1px solid #000;
+  padding: 10px;
 }
 
 .reset-text {

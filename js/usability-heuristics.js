@@ -78,7 +78,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("/html/index.html");
+    return window.location.assign("/html/round-four.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -98,15 +98,15 @@ options.forEach((option) => {
   option.addEventListener("click", (e) => {
     const selectedOption = e.target;
     const selectedAnswer = selectedOption.dataset["number"];
-    console.log(Number(selectedAnswer), currentQuestion.answer);
-    console.log(currentQuestion);
-    computerScore += correctAnswerPoints; // computer scores each time
-
+    // console.log(Number(selectedAnswer), currentQuestion.answer);
+    // console.log(currentQuestion);
+    computerScore += correctAnswerPoints; // computer  gets 10pts when player gets answer correct
     if (Number(selectedAnswer) === currentQuestion.answer) {
       playerScore += correctAnswerPoints;
       updateScores();
       alert("Correct!");
       getNewQuestion();
+      goToRoundFour();
     } else {
       playerScore -= correctAnswerPoints;
       alert("NOT Correct");
@@ -115,15 +115,14 @@ options.forEach((option) => {
       if (wrongAnswers > 2) {
         alert("You got more than 2 questions wrong. Game over.");
         resetAndGoHome();
-      } else {
-        alert("YOU HAVE WON THE GAME!");
-        window.location.assign("/html/round-four.html");
       }
     }
-    // else {
-    //   // score -= correctAnswerPoints;
-    //   updateScores();
-    // }
+    if (wrongAnswers < 2 && availableQuestions.length === 0) {
+      alert(
+        "You've passed ROUND 4 and you have WON THE GAME! Stay tuned for more questions and more levels!"
+      );
+      window.location.assign("/html/round-four.html");
+    }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
       return updateScores();
@@ -132,10 +131,18 @@ options.forEach((option) => {
 });
 
 function updateScores() {
-  console.log(computerScore);
-  console.log(playerScore);
   robotScoreElement.textContent = String(computerScore).padStart(5, "0"); // changed the minus sign to an equals sign! It works
   playerScoreElement.textContent = String(playerScore).padStart(5, "0");
+}
+
+function goToRoundOne() {
+  if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
+    return window.location.assign("/html/round-one.html");
+}
+
+function goToRoundFour() {
+  if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
+    return window.location.assign("/html/round-four.html");
 }
 
 function nextButtonClick() {
@@ -149,7 +156,7 @@ function resetAndGoHome() {
   questionCounter = 0;
   availableQuestions = [...questions];
   wrongAnswers = 0;
-  window.location.assign("/html/round-four.html");
+  window.location.assign("/html/index.html");
 }
 
 function resetGame() {
@@ -159,5 +166,5 @@ function resetGame() {
 }
 
 startGame();
-
+goToRoundFour();
 // add this in a condition to reset and restart the game: windows.location.reload()

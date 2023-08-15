@@ -3,7 +3,8 @@ let options = [...document.querySelectorAll(".option")]; // makes a copy of this
 let questionImage = document.querySelector(".question-image");
 console.log(options);
 let currentQuestion = {};
-let score = 0;
+let playerScore = 0;
+let computerScore = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 let wrongAnswers = 0;
@@ -13,7 +14,7 @@ let playerScoreElement = document.querySelector(".player-score-class");
 
 let questions = [
   {
-    question: 'What design principle is MOST represented in the word "LIVIE"?',
+    question: 'What design principle is MOST represented in the word "ALIVE"?',
     image: "/images/designImage1.png",
     option1: "Alignment",
     option2: "Hue",
@@ -63,7 +64,7 @@ let questions = [
 ];
 
 const correctAnswerPoints = 10; // points per correct answer
-const maxQuestions = 6;
+const maxQuestions = 5;
 
 function startGame() {
   questionCounter = 0;
@@ -74,9 +75,10 @@ function startGame() {
   getNewQuestion();
 }
 function getNewQuestion() {
-  if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
+  if (availableQuestions.length === 0 && questionCounter >= maxQuestions) {
     return window.location.assign("/html/round-two.html");
   }
+
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
@@ -87,7 +89,6 @@ function getNewQuestion() {
     const number = option.dataset["number"];
     option.innerText = currentQuestion["option" + number];
   });
-
   availableQuestions.splice(questionIndex, 1);
 }
 
@@ -97,7 +98,7 @@ options.forEach((option) => {
     const selectedAnswer = selectedOption.dataset["number"];
     // console.log(Number(selectedAnswer), currentQuestion.answer);
     // console.log(currentQuestion);
-computerScore += correctAnswerPoints // computer always gets 10pts
+    computerScore += correctAnswerPoints; // computer  gets 10pts when player gets answer correct
     if (Number(selectedAnswer) === currentQuestion.answer) {
       playerScore += correctAnswerPoints;
       updateScores();
@@ -110,19 +111,18 @@ computerScore += correctAnswerPoints // computer always gets 10pts
       getNewQuestion();
       wrongAnswers++;
       if (wrongAnswers > 2) {
-        alert("You got more than 2 questions wrong. Game over.");
+        alert(
+          "You got more than 2 questions wrong. Game over. You must return to the beginning"
+        );
         resetAndGoHome();
       }
-
     }
     if (wrongAnswers < 2 && availableQuestions.length === 0) {
-        alert("YOU WIN! You can now advance to ROUND 2 (Color Theory)!");
-        window.location.assign("/html/round-two.html");
-      }
-    // else {
-    //   // score -= correctAnswerPoints;
-    //   updateScores();
-    // }
+      alert(
+        "You've passed ROUND 1! You can now advance to ROUND 2 (Color Theory)!"
+      );
+      window.location.assign("/html/round-two.html");
+    }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
       return updateScores();
@@ -161,7 +161,7 @@ function resetAndGoHome() {
 
 function resetGame() {
   playerScore = 0;
-  computerScore = 0; 
+  computerScore = 0;
   updateScores();
 }
 

@@ -38,16 +38,3 @@ function updateScores() {
   robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
   playerScoreElement.textContent = String(score).padStart(5, "0");
 }
-function resetGame() {
-  score = 0;
-  updateScores();
-}
-
-let resetButton = document.querySelector(".reset-button");
-resetButton.addEventListener("click", () => {
-resetGame();
-});
-function resetButtonClick() {
-  score = 0;
-  updateScores();
-}
