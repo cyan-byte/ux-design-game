@@ -1,4 +1,4 @@
-Learn JavaScript Interactively by Coding an RPG Game – Tutorial:
+Learn JavaScript Interactively by Coding an RPG Game – Tutorial
 https://www.youtube.com/watch?v=SYx885hX0OY
 
 Build a Quiz App(3) - Display Hard-Coded Questions:

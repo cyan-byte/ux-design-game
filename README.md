@@ -41,3 +41,11 @@ Acknowledgments
 Inspiration, code snippets, etc.
 
 https://cantunsee.space/
+Learn JavaScript Interactively by Coding an RPG Game – Tutorial
+https://www.youtube.com/watch?v=SYx885hX0OY
+
+Build a Quiz App(3) - Display Hard-Coded Questions:
+https://www.youtube.com/watch?v=zZdQGs62cR8&ab_channel=JamesQQuick
+
+Icons:
+<a target="_blank" href="https://icons8.com/illustrations/illustration/6433db75fd971c000166afcb">App</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
