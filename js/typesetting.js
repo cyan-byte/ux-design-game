@@ -16,7 +16,7 @@ let questions = [
   {
     question:
       "What term describes a lone word or short group of words leftover from a previous paragraph? They appear at the bottom of a paragraph, column or page.",
-    image: "/images/typesettingImage1.png",
+    image: "images/typesettingImage1.png",
     option1: "Widow",
     option2: "Hyphen",
     option3: "Orphan",
@@ -26,7 +26,7 @@ let questions = [
   {
     question:
       "Which typographic feature involves adjusting the space between pairs of letters to improve their visual harmony and legibility?",
-    image: "/images/typesettingImage2.png",
+    image: "images/typesettingImage2.png",
     option1: "Leading",
     option2: "Ligature",
     option3: "Base",
@@ -36,7 +36,7 @@ let questions = [
   {
     question:
       "What is the term for a word or short line of text that appears alone at the top of a page or column, separated from the rest of the paragraph?",
-    image: "/images/typesettingImage3.png",
+    image: "images/typesettingImage3.png",
     option1: "Widow",
     option2: "Hyphen",
     option3: "Orphan",
@@ -46,7 +46,7 @@ let questions = [
   {
     question:
       "Which typesetting practice involves adjusting the vertical space between lines of text to improve readability and aesthetics?",
-    image: "/images/typesettingImage4.png",
+    image: "images/typesettingImage4.png",
     option1: "Tracking",
     option2: "Baseline",
     option3: "Leading",
@@ -56,7 +56,7 @@ let questions = [
   {
     question:
       "What is the term for the adjustment of the space between individual characters in a word?",
-    image: "/images/typesettingImage5.png",
+    image: "images/typesettingImage5.png",
     option1: "Kerning",
     option2: "Tracking",
     option3: "Alignment",
@@ -78,7 +78,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("/html/round-four.html");
+    return window.location.assign("html/round-four.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -121,7 +121,7 @@ options.forEach((option) => {
       alert(
         "You've passed ROUND 3! You can now advance to ROUND 4! (Usability Heuristics)"
       );
-      window.location.assign("/html/round-four.html");
+      window.location.assign("html/round-four.html");
     }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
@@ -137,12 +137,12 @@ function updateScores() {
 
 function goToRoundOne() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
-    return window.location.assign("/html/round-one.html");
+    return window.location.assign("html/round-one.html");
 }
 
 function goToRoundFour() {
   if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
-    return window.location.assign("/html/round-four.html");
+    return window.location.assign("html/round-four.html");
 }
 
 function nextButtonClick() {
@@ -156,7 +156,7 @@ function resetAndGoHome() {
   questionCounter = 0;
   availableQuestions = [...questions];
   wrongAnswers = 0;
-  window.location.assign("/html/index.html");
+  window.location.assign("index.html");
 }
 
 function resetGame() {

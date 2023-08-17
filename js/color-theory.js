@@ -16,7 +16,7 @@ let questions = [
   {
     question:
       "Which color scheme consists of three colors that are equidistant from each other on the color wheel?",
-    image: "/images/colorTheoryImage1.png",
+    image: "images/colorTheoryImage1.png",
     option1: "Monochromatic",
     option2: "Analogous",
     option3: "Complementary",
@@ -26,7 +26,7 @@ let questions = [
   {
     question:
       'What does the color "blue" typically symbolize in color psychology?',
-    image: "/images/colorTheoryImage2.png",
+    image: "images/colorTheoryImage2.png",
     option1: "Joy",
     option2: "Sadness",
     option3: "Anger",
@@ -36,7 +36,7 @@ let questions = [
   {
     question:
       "What is the term for a color created by mixing two primary colors in equal proportions?",
-    image: "/images/colorTheoryImage3.png",
+    image: "images/colorTheoryImage3.png",
     option1: "Secondary Color",
     option2: "Tertiary Color",
     option3: "Complementary Color",
@@ -46,7 +46,7 @@ let questions = [
   {
     question:
       "Which color harmony is created by choosing colors that are next to each other on the color wheel?",
-    image: "/images/colorTheoryImage4.png",
+    image: "images/colorTheoryImage4.png",
     option1: "Split-complementary",
     option2: "Monochromatic",
     option3: "Analogous",
@@ -56,7 +56,7 @@ let questions = [
   {
     question:
       "Which color scheme uses shades, tints, and tones of a single color?",
-    image: "/images/colorTheoryImage5.png",
+    image: "images/colorTheoryImage5.png",
     option1: "Complementary",
     option2: "Monochromatic",
     option3: "Triadic",
@@ -78,7 +78,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("/html/round-three.html");
+    return window.location.assign("html/round-three.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -121,7 +121,7 @@ options.forEach((option) => {
       alert(
         "You've passed ROUND 2! You can now advance to ROUND 3! (Typesetting)"
       );
-      window.location.assign("/html/round-three.html");
+      window.location.assign("html/round-three.html");
     }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
@@ -137,12 +137,12 @@ function updateScores() {
 
 function goToRoundOne() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
-    return window.location.assign("/html/round-one.html");
+    return window.location.assign("html/round-one.html");
 }
 
 function goToRoundThree() {
   if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
-    return window.location.assign("/html/round-three.html");
+    return window.location.assign("html/round-three.html");
 }
 
 function nextButtonClick() {
@@ -156,7 +156,7 @@ function resetAndGoHome() {
   questionCounter = 0;
   availableQuestions = [...questions];
   wrongAnswers = 0;
-  window.location.assign("/html/index.html");
+  window.location.assign("index.html");
 }
 
 function resetGame() {

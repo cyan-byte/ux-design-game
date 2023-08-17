@@ -16,7 +16,7 @@ let questions = [
   {
     question:
       "Which usability heuristic suggests that the system's language, concepts, and navigation should be consistent with what a user experiences in daily life?",
-    image: "/images/usabilityImage1.png",
+    image: "images/usabilityImage1.png",
     option1: "Error prevention",
     option2: "Match between system and the real world",
     option3: "Visibility of system status",
@@ -26,7 +26,7 @@ let questions = [
   {
     question:
       'What does the usability heuristic "Consistency and Standards" emphasize in interface design?',
-    image: "/images/usabilityImage2.png",
+    image: "images/usabilityImage2.png",
     option1: "Providing minimal feedback",
     option2: "Using a wide variety of colors",
     option3: "Following established design conventions",
@@ -36,7 +36,7 @@ let questions = [
   {
     question:
       'According to the usability heuristic "User control and freedom," what should users have the ability to do?',
-    image: "/images/usabilityImage3.png",
+    image: "images/usabilityImage3.png",
     option1: "Be guided step-by-step through the interface",
     option2: "Undo actions and escape undesirable states",
     option3: "Access extensive help documentation",
@@ -46,7 +46,7 @@ let questions = [
   {
     question:
       'What should designers consider to adhere to the usability heuristic "Flexibility and efficiency of use"?',
-    image: "/images/usabilityImage4.png",
+    image: "images/usabilityImage4.png",
     option1: "Providing identical functionality for all users",
     option2: "Removing advanced features for novice users",
     option3: "Creating separate interfaces for different tasks",
@@ -56,7 +56,7 @@ let questions = [
   {
     question:
       "Which usability heuristic emphasizes the need to offer users clear and timely feedback and to know where they are on the website?",
-    image: "/images/usabilityImage5.png",
+    image: "images/usabilityImage5.png",
     option1: "Visibility of system status",
     option2: "Consistency and standards",
     option3: "Match between system and the real world",
@@ -78,7 +78,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("/html/round-four.html");
+    return window.location.assign("html/round-four.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -121,7 +121,7 @@ options.forEach((option) => {
       alert(
         "You've passed ROUND 4 and you have WON THE GAME! Stay tuned for more questions and more levels!"
       );
-      window.location.assign("/html/round-four.html");
+      window.location.assign("html/round-four.html");
     }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
@@ -137,12 +137,12 @@ function updateScores() {
 
 function goToRoundOne() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
-    return window.location.assign("/html/round-one.html");
+    return window.location.assign("html/round-one.html");
 }
 
 function goToRoundFour() {
   if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
-    return window.location.assign("/html/round-four.html");
+    return window.location.assign("html/round-four.html");
 }
 
 function nextButtonClick() {
@@ -156,7 +156,7 @@ function resetAndGoHome() {
   questionCounter = 0;
   availableQuestions = [...questions];
   wrongAnswers = 0;
-  window.location.assign("/html/index.html");
+  window.location.assign("index.html");
 }
 
 function resetGame() {
