@@ -4,7 +4,7 @@ let designPrinciplesButton = document.querySelector(
   ".open-level-button design-principles-button"
 );
 designPrinciplesButton?.addEventListener("click", function () {
-  window.location = "html/design-principles.html";
+  window.location = "design-principles.html";
 });
 
 let designGameBody = document.querySelector(".game-body");

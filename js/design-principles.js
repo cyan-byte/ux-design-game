@@ -15,7 +15,7 @@ let playerScoreElement = document.querySelector(".player-score-class");
 let questions = [
   {
     question: 'What design principle is MOST represented in the word "ALIVE"?',
-    image: "./images/designImage1.png",
+    image: "images/designImage1.png",
     option1: "Alignment",
     option2: "Hue",
     option3: "Hierarchy",
@@ -24,7 +24,7 @@ let questions = [
   },
   {
     question: "What design principle is MOST shown in the image above?",
-    image: "./images/designImage2.png",
+    image: "images/designImage2.png",
     option1: "Proximity",
     option2: "Movement",
     option3: "Repetition",
@@ -34,7 +34,7 @@ let questions = [
   {
     question:
       "In the image above, what design principle is illustrated by the strategic use of the area around the elements?",
-    image: "./images/designImage3.png",
+    image: "images/designImage3.png",
     option1: "Emphasis",
     option2: "Proportion",
     option3: "Negative Space",
@@ -44,7 +44,7 @@ let questions = [
   {
     question:
       "Which design principle is exemplified in the image below by the progression of elements leading the viewer's eye?",
-    image: "./images/designImage4.png",
+    image: "images/designImage4.png",
     option1: "Movement",
     option2: "Color",
     option3: "Space",
@@ -54,7 +54,7 @@ let questions = [
   {
     question:
       "In the image below, which design principle creates a sense of harmony through the distribution of weight?",
-    image: "./images/designImage5.png",
+    image: "images/designImage5.png",
     option1: "Scale",
     option2: "Balance",
     option3: "Height",
@@ -76,7 +76,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 && questionCounter >= maxQuestions) {
-    return window.location.assign("html/round-two.html");
+    return window.location.assign("round-two.html");
   }
 
   questionCounter++;
@@ -121,7 +121,7 @@ options.forEach((option) => {
       alert(
         "You've passed ROUND 1! You can now advance to ROUND 2 (Color Theory)!"
       );
-      window.location.assign("html/round-two.html");
+      window.location.assign("round-two.html");
     }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
@@ -137,12 +137,12 @@ function updateScores() {
 
 function goToRoundOne() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
-    return window.location.assign("html/round-one.html");
+    return window.location.assign("round-one.html");
 }
 
 function goToRoundTwo() {
   if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
-    return window.location.assign("html/round-two.html");
+    return window.location.assign("round-two.html");
 }
 
 function nextButtonClick() {

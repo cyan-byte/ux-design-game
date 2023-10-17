@@ -78,7 +78,7 @@ function startGame() {
 }
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
-    return window.location.assign("html/round-four.html");
+    return window.location.assign("round-four.html");
   }
   questionCounter++;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -121,7 +121,7 @@ options.forEach((option) => {
       alert(
         "You've passed ROUND 4 and you have WON THE GAME! Stay tuned for more questions and more levels!"
       );
-      window.location.assign("html/round-four.html");
+      window.location.assign("round-four.html");
     }
 
     if (Number(selectedAnswer) !== currentQuestion.answer) {
@@ -137,12 +137,12 @@ function updateScores() {
 
 function goToRoundOne() {
   if (availableQuestions.length === 0 || questionCounter >= maxQuestions)
-    return window.location.assign("html/round-one.html");
+    return window.location.assign("round-one.html");
 }
 
 function goToRoundFour() {
   if (availableQuestions.length === 0 && questionCounter >= maxQuestions)
-    return window.location.assign("html/round-four.html");
+    return window.location.assign("round-four.html");
 }
 
 function nextButtonClick() {
