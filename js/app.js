@@ -6,25 +6,6 @@ let designPrinciplesButton = document.querySelector(
 designPrinciplesButton?.addEventListener("click", function () {
   window.location = "html/design-principles.html";
 });
-// // color theory menu button
-// let colorTheoryButton = document.querySelector(".color-theory-button");
-// colorTheoryButton?.addEventListener("click", function () {
-//   window.location = "html/color-theory.html";
-// });
-
-// // typesetting menu button
-// let typesettingButton = document.querySelector(".color-theory-button");
-// typesettingButton?.addEventListener("click", function () {
-//   window.location = "html/typesetting.html";
-// });
-
-// // Usability Heuristics menu button
-// let usabilityHeuristicsButton = document.querySelector(
-//   ".usability-heuristics-button"
-// );
-// usabilityHeuristicsButton?.addEventListener("click", function () {
-//   window.location = "html/usability-heuristics.html";
-// });
 
 let designGameBody = document.querySelector(".game-body");
 designGameBody?.addEventListener("load", () => {
@@ -35,6 +16,6 @@ let robotScoreElement = document.getElementById("robot-score-class");
 let playerScoreElement = document.getElementById("player-score-class");
 
 function updateScores() {
-  robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign! It works
+  robotScoreElement.textContent = String(score).padStart(5, "0"); // changed the minus sign to an equals sign =D!
   playerScoreElement.textContent = String(score).padStart(5, "0");
 }
